@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+.flexbox {
+    display: flex;
+    gap: 32px;
+}
+
+.register-button {
+    padding: 10px;
+    margin: 10px auto;
+    background: #0848C0;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.modal-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-window {
+    position: absolute;
+    width: 754px;
+    height: 720px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 100px;
+    border-radius: 12px;
+    background: #ffffff;
+    text-align: start;
+}
+
+.modal-window__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.modal-window__form {
+    margin-top: 56px;
+    flex-direction: column;
+}
+
+.modal-window__block {
+    flex-direction: row;
+    width: 100%;
+}
+
+.modal-window__fields-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 32px;
+}
+
+.modal-window__field-container {
+    position: relative;
+    height: 56px;
+    flex-grow: 1;
+    padding: 8px 16px;
+    border: 1px solid #d6dade;
+    border-radius: 2px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.modal-window__field-container > label {
+    display: block;
+    line-height: 16px;
+    font-size: 12px;
+    color: #6A6E72;
+}
+
+.modal-window__field-container > label > b {
+    font-size: 16px;
+    line-height: 16px;
+    color: #D90000;
+}
+
+.modal-window__field {
+    outline: none;
+    border: none;
+    display: block;
+    width: 100%;
+    line-height: 24px;
+    font-size: 16px;
+    color: #0C1014;
+}
+
+.modal-window__field--select {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    width: calc(100% - 32px);
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.modal-window__field-arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+}
+
+#website {
+    margin-top: 8px;
+}
+
+.modal-window__field-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-window__avatar {
+    position: relative;
+    width: 162px;
+    height: 162px;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-window__avatar-preview,
+.modal-window__avatar-cover {
+    width: 162px;
+    height: 162px;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-window__avatar-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.modal-window__avatar > label{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal-window__cancel-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    transform: translate(-25%, 0%);
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    z-index: 10;
+}
+
+.modal-window__buttons-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 15px;
+}
+
+.modal-window__button {
+    border: none;
+    background: transparent;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+}
+
+.modal-window__button--register {
+    width: 100%;
+    height: 48px;
+    line-height: 18px;
+    border-radius: 4px;
+    background: #6326E5;
+    color: #ffffff;
+}
+
+.modal-window__button--cancel {
+    margin: 0 auto;
+    line-height: 24px;
+    color: #0848C0;
+}
+
+@media screen and (max-width: 767px) {
+    .modal-window {
+        width: calc(100vw);
+        height: fit-content;
+        min-height: calc(100vh);
+        top: 0;
+        left: 0;
+        transform: none;
+        padding: 30px 20px;
+        border-radius: 0;
+        background: #ffffff;
+        text-align: start;
+        overflow-y: scroll;
+    }
+    
+    .modal-window__title {
+        text-align: center;
+    }
+
+    .modal-window__avatar {
+        margin: 0 auto;
+    }
+    
+    .modal-window__form {
+        margin-top: 28px;
+        flex-direction: column;
+    }
+    
+    .modal-window__block {
+        flex-direction: column-reverse;
+    }
+
+    .modal-window__field {
+        font-size: 14px;
+    }
+}

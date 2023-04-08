@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data table</title>
+    <style>
+        table {
+            font-family: sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 4px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <table id="dataTable">
+
+        <thead>
+            <tr>
+
+            </tr>
+        </thead>
+        
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <script>
+        const   table = document.querySelector('#dataTable'),
+                tableHeading = table.querySelector('thead'),
+                tableHeadingRow = tableHeading.querySelector('tr'),
+                tableBody = table.querySelector('tbody')
+
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                createDataTable(JSON.parse(xhr.response));
+            }
+        }
+        xhr.open('GET', 'https://you-digital.ru/works/posts', true);
+        xhr.send(null);
+
+        const createDataTable = data => {
+            let headingContents = false,
+                headingContentsTemp = [],
+                bodyContents = [],
+                rowCount = 0
+
+            Object.entries(data).forEach(rowData => {
+
+                const tableRow = document.createElement("tr")
+                
+                Object.entries(rowData[1]).forEach(cellData => {
+
+                    if(rowCount == 0) {
+                        const tableHeadingCell = document.createElement("th")
+                        tableHeadingCell.textContent = cellData[0]
+                        tableHeadingRow.appendChild(tableHeadingCell)
+                    }
+
+                    const tableCell = document.createElement("td")
+
+                    tableCell.textContent = cellData[1]
+                    tableRow.appendChild(tableCell)
+
+                })
+
+                tableBody.appendChild(tableRow)
+
+                rowCount += 1
+
+            });
+
+        }
+    </script>
+
+</body>
+</html>
